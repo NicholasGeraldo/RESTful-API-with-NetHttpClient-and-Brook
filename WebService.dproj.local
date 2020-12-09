@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/12/02 11:20:11.000.019,=C:\MyData\Projects\FormUnit1.pas</Transaction>
+    <Transaction>2020/12/02 11:20:19.000.003,=C:\MyData\Projects\WebModuleUnit1.pas</Transaction>
+    <Transaction>2020/12/06 16:53:52.000.462,=C:\MyData\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/12/06 16:55:26.000.055,P:\RESTfull API with NetHttpClient and Brook\uFrWebService.fmx=C:\MyData\Projects\Unit1.fmx</Transaction>
+    <Transaction>2020/12/06 16:55:26.000.055,P:\RESTfull API with NetHttpClient and Brook\uFrWebService.pas=C:\MyData\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/12/06 16:55:36.000.117,P:\RESTfull API with NetHttpClient and Brook\WebService.dproj=C:\MyData\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/12/06 17:02:22.000.149,=P:\RESTfull API with NetHttpClient and Brook\Utility.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>

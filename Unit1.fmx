@@ -1,0 +1,163 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Aplikasi Client ( RESTful API ) - By NICHOLAS GERALDO'
+  ClientHeight = 399
+  ClientWidth = 743
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object edtNama: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 4
+    Position.X = 104.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 185.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object edtAlamat: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 3
+    Position.X = 104.000000000000000000
+    Position.Y = 64.000000000000000000
+    Size.Width = 185.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object edtTelp: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 2
+    Position.X = 104.000000000000000000
+    Position.Y = 96.000000000000000000
+    Size.Width = 185.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object edtID: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Position.X = 312.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 89.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Label1: TLabel
+    Position.X = 24.000000000000000000
+    Position.Y = 32.000000000000000000
+    Text = 'Nama'
+    TabOrder = 8
+  end
+  object Label2: TLabel
+    Position.X = 24.000000000000000000
+    Position.Y = 67.000000000000000000
+    Text = 'Alamat'
+    TabOrder = 7
+  end
+  object Label3: TLabel
+    Position.X = 24.000000000000000000
+    Position.Y = 99.000000000000000000
+    Text = 'Telp'
+    TabOrder = 6
+  end
+  object btnTambah: TButton
+    Position.X = 304.000000000000000000
+    Position.Y = 96.000000000000000000
+    TabOrder = 12
+    Text = 'Tambah'
+    OnClick = btnTambahClick
+  end
+  object btnUbah: TButton
+    Position.X = 400.000000000000000000
+    Position.Y = 96.000000000000000000
+    TabOrder = 11
+    Text = 'Ubah'
+    OnClick = btnUbahClick
+  end
+  object btnHapus: TButton
+    Position.X = 400.000000000000000000
+    Position.Y = 336.000000000000000000
+    TabOrder = 10
+    Text = 'Hapus'
+    OnClick = btnHapusClick
+  end
+  object StringGrid1: TStringGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 24.000000000000000000
+    Position.Y = 144.000000000000000000
+    Size.Width = 482.000000000000000000
+    Size.Height = 185.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 13
+    RowCount = 1
+    OnSelectCell = StringGrid1SelectCell
+    Viewport.Width = 478.000000000000000000
+    Viewport.Height = 160.000000000000000000
+    object StringColumn1: TStringColumn
+      Header = 'ID'
+      Size.Width = 41.000000000000000000
+    end
+    object StringColumn2: TStringColumn
+      Header = 'Nama'
+    end
+    object StringColumn3: TStringColumn
+      Header = 'Alamat'
+      Size.Width = 218.000000000000000000
+    end
+    object StringColumn4: TStringColumn
+      Header = 'Telp'
+    end
+  end
+  object edtCari: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 14
+    Position.X = 72.000000000000000000
+    Position.Y = 336.000000000000000000
+    Size.Width = 193.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Label4: TLabel
+    Position.X = 24.000000000000000000
+    Position.Y = 339.000000000000000000
+    Text = 'Search'
+    TabOrder = 5
+  end
+  object btnCari: TButton
+    Position.X = 280.000000000000000000
+    Position.Y = 336.000000000000000000
+    TabOrder = 9
+    Text = 'Cari'
+    OnClick = btnCariClick
+  end
+  object NetHTTPClient: TNetHTTPClient
+    Asynchronous = False
+    ConnectionTimeout = 60000
+    ResponseTimeout = 60000
+    HandleRedirects = True
+    AllowCookies = True
+    UserAgent = 'Embarcadero URI Client/1.0'
+    Left = 416
+    Top = 40
+  end
+  object RESTClient1: TRESTClient
+    Params = <>
+    Left = 640
+    Top = 160
+  end
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
+    Params = <>
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 640
+    Top = 288
+  end
+  object RESTResponse1: TRESTResponse
+    Left = 640
+    Top = 224
+  end
+end

@@ -1,0 +1,179 @@
+object FrWebService: TFrWebService
+  Left = 0
+  Top = 0
+  Caption = 'WEBSERVICE (RESTful API ) - By NICHOLAS GERALDO'
+  ClientHeight = 244
+  ClientWidth = 482
+  Position = DesktopCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object pnTop: TPanel
+    Align = Top
+    Margins.Left = 6.000000000000000000
+    Margins.Top = 6.000000000000000000
+    Margins.Right = 6.000000000000000000
+    Margins.Bottom = 6.000000000000000000
+    Position.X = 6.000000000000000000
+    Position.Y = 6.000000000000000000
+    Size.Width = 470.000000000000000000
+    Size.Height = 51.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object lbPort: TLabel
+      Align = Left
+      AutoSize = True
+      StyledSettings = [Family, Size, FontColor]
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 4.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 39.000000000000000000
+      Size.Height = 31.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.HorzAlign = Trailing
+      Text = '&Port:'
+      TabOrder = 0
+    end
+    object edPort: TNumberBox
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Left
+      TabOrder = 1
+      Cursor = crIBeam
+      Max = 65535.000000000000000000
+      Value = 2020.000000000000000000
+      TextSettings.HorzAlign = Trailing
+      Position.X = 43.000000000000000000
+      Position.Y = 14.000000000000000000
+      Margins.Top = 14.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 14.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object btStart: TButton
+      Action = acStart
+      Align = Left
+      Cursor = crHandPoint
+      Enabled = True
+      ImageIndex = -1
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 143.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 31.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+    end
+    object btStop: TButton
+      Action = acStop
+      Align = Left
+      Cursor = crHandPoint
+      Enabled = False
+      ImageIndex = -1
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 233.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 31.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+    end
+  end
+  object lbLink: TLabel
+    Align = Top
+    AutoSize = True
+    Cursor = crHandPoint
+    Enabled = False
+    StyledSettings = [Family, Size]
+    HitTest = True
+    Margins.Left = 6.000000000000000000
+    Margins.Top = 6.000000000000000000
+    Margins.Right = 6.000000000000000000
+    Margins.Bottom = 6.000000000000000000
+    Position.X = 6.000000000000000000
+    Position.Y = 69.000000000000000000
+    Size.Width = 470.000000000000000000
+    Size.Height = 16.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.StyleExt = {04040000000000000004000000}
+    TextSettings.FontColor = claBlue
+    TextSettings.WordWrap = False
+    Text = 'http://localhost'
+    TabOrder = 1
+    OnClick = lbLinkClick
+  end
+  object BrookHTTPServer1: TBrookHTTPServer
+    OnRequest = BrookHTTPServer1Request
+    OnStart = BrookHTTPServer1Stop
+    OnStop = BrookHTTPServer1Stop
+    Left = 280
+    Top = 112
+  end
+  object BrookURLRouter1: TBrookURLRouter
+    Routes = <
+      item
+        Default = True
+        Pattern = '/'
+        OnRequest = BrookURLRouter1Routes0Request
+      end
+      item
+        Pattern = '/customer'
+        Methods = [rmGET, rmPOST, rmPUT, rmDELETE]
+        OnRequest = BrookURLRouter1Routes1Request
+      end
+      item
+        Pattern = '/item'
+      end>
+    Left = 152
+    Top = 104
+  end
+  object alMain: TActionList
+    Left = 56
+    Top = 112
+    object acStart: TAction
+      Category = 'HTTP server'
+      Text = '&Start'
+      ShortCut = 120
+      OnExecute = acStartExecute
+    end
+    object acStop: TAction
+      Category = 'HTTP server'
+      Text = 'S&top'
+      Enabled = False
+      ShortCut = 121
+      OnExecute = acStopExecute
+    end
+  end
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'DriverID=SQLite')
+    LoginPrompt = False
+    Left = 64
+    Top = 168
+  end
+  object FDQuery: TFDQuery
+    Connection = FDConnection
+    Left = 168
+    Top = 168
+  end
+  object FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink
+    VendorLib = 'P:\RESTfull API with NetHttpClient and Brook\sqlite3.dll'
+    Left = 280
+    Top = 168
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'FMX'
+    Left = 568
+    Top = 136
+  end
+end
